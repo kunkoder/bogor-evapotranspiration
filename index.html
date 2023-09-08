@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <link rel="apple-touch-icon" sizes="76x76" href="./assets/img/apple-icon.png">
+  <link rel="icon" type="image/png" href="./assets/img/favicon.png">
+  <title>
+    Bogor Climate
+  </title>
+  <!--     Fonts and icons     -->
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700" rel="stylesheet" />
+  <!-- Nucleo Icons -->
+  <link href="./assets/css/nucleo-icons.css" rel="stylesheet" />
+  <link href="./assets/css/nucleo-svg.css" rel="stylesheet" />
+  <!-- Font Awesome Icons -->
+  <script src="https://kit.fontawesome.com/42d5adcbca.js" crossorigin="anonymous"></script>
+  <link href="./assets/css/nucleo-svg.css" rel="stylesheet" />
+  <!-- CSS Files -->
+  <link id="pagestyle" href="./assets/css/soft-design-system.css?v=1.0.5" rel="stylesheet" />
+
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css"
+    integrity="sha512-xodZBNTC5n17Xt2atTPuE1HxjVMSvLVW9ocqUKLsCC5CXdbqCmblAshOMAS6/keqq/sMZMZ19scR4PsZChSR7A=="
+    crossorigin="" />
+  <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"
+    integrity="sha512-XQoYMqMTK8LvdxXYG3nZ448hOEQiglfqkJs1NOQV44cWnUrBc8PkAOcXy20w0vlaXaVUearIOBhiXZ5V3ynxwA=="
+    crossorigin=""></script>
+
+</head>
+
+<body class="index-page">
+  <!-- Navbar -->
+  <div class="container position-sticky z-index-sticky top-0">
+    <div class="row">
+      <div class="col-12">
+        <nav
+          class="navbar navbar-expand-lg  blur blur-rounded top-0 z-index-fixed shadow position-absolute my-3 py-2 start-0 end-0 mx-4">
+          <div class="container-fluid">
+            <a class="navbar-brand font-weight-bolder ms-sm-3"
+              href="https://demos.creative-tim.com/soft-ui-design-system/index.html" rel="tooltip"
+              title="Designed and Coded by Creative Tim" data-placement="bottom" target="_blank">
+              BOGOR CLIMATE
+            </a>
+            <button class="navbar-toggler shadow-none ms-2" type="button" data-bs-toggle="collapse"
+              data-bs-target="#navigation" aria-controls="navigation" aria-expanded="false"
+              aria-label="Toggle navigation">
+              <span class="navbar-toggler-icon mt-2">
+                <span class="navbar-toggler-bar bar1"></span>
+                <span class="navbar-toggler-bar bar2"></span>
+                <span class="navbar-toggler-bar bar3"></span>
+              </span>
+            </button>
+            <div class="collapse navbar-collapse pt-3 pb-2 py-lg-0 w-100" id="navigation">
+              <ul class="navbar-nav navbar-nav-hover ms-lg-12 ps-lg-5 w-100">
+                <li class="nav-item ms-lg-auto">
+                  <a class="nav-link nav-link-icon me-2"
+                    href="https://github.com/kunkoder/bogor-evapotranspiration" target="_blank">
+                    <i class="fa fa-github me-1"></i>
+                    <p class="d-inline text-sm z-index-1 font-weight-bold" data-bs-toggle="tooltip"
+                      data-bs-placement="bottom" title="Star us on Github">Github</p>
+                  </a>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </nav>
+        <!-- End Navbar -->
+      </div>
+    </div>
+  </div>
+  <header class="header-2">
+    <div class="page-header min-vh-75" style="background-image: url('./assets/img/curved-images/curved.jpg')">
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-7 text-center mx-auto">
+            <h1 class="text-white pt-3 mt-n5">Bogor Climate</h1>
+            <p class="lead text-white mt-3">Bogor city climate information portal <br> through remote sensing technology.</p>
+          </div>
+        </div>
+      </div>
+      <div class="position-absolute w-100 z-index-1 bottom-0">
+        <svg class="waves" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+          viewBox="0 24 150 40" preserveAspectRatio="none" shape-rendering="auto">
+          <defs>
+            <path id="gentle-wave" d="M-160 44c30 0 58-18 88-18s 58 18 88 18 58-18 88-18 58 18 88 18 v44h-352z" />
+          </defs>
+          <g class="moving-waves">
+            <use xlink:href="#gentle-wave" x="48" y="-1" fill="rgba(255,255,255,0.40" />
+            <use xlink:href="#gentle-wave" x="48" y="3" fill="rgba(255,255,255,0.35)" />
+            <use xlink:href="#gentle-wave" x="48" y="5" fill="rgba(255,255,255,0.25)" />
+            <use xlink:href="#gentle-wave" x="48" y="8" fill="rgba(255,255,255,0.20)" />
+            <use xlink:href="#gentle-wave" x="48" y="13" fill="rgba(255,255,255,0.15)" />
+            <use xlink:href="#gentle-wave" x="48" y="16" fill="rgba(255,255,255,0.95" />
+          </g>
+        </svg>
+      </div>
+    </div>
+  </header>
+
+  <section class="pt-3 pb-4">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-9 z-index-2 border-radius-xl mt-n10 mx-auto py-3 blur shadow-blur">
+          <h3 class="text-center">Search Coordinate</h3>
+          <form role="form" id="contact-form" method="post" autocomplete="off">
+            <div class="card-body">
+              <div class="row">
+                <div class="col-md-6">
+                  <label>Latitude</label>
+                  <div class="input-group mb-4">
+                    <input class="form-control" placeholder="" aria-label="First Name..." type="text">
+                  </div>
+                </div>
+                <div class="col-md-6 ps-2">
+                  <label>Longitude</label>
+                  <div class="input-group">
+                    <input type="text" class="form-control" placeholder="" aria-label="Last Name...">
+                  </div>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-md-12">
+                  <button type="submit" class="btn bg-gradient-dark w-100">Search</button>
+                </div>
+              </div>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="pt-3 pb-4">
+    <div class="container">
+      <h3 class="text-center">Map</h3>
+      <div id="map" style="height: 500px;"></div>
+    </div>
+  </section>
+
+  <section class="mt-12 id=" count-stats>
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-9 z-index-2 border-radius-xl mt-n10 mx-auto py-3 bg-gradient-dark">
+          <div class="row text-white">
+            <div class="col-md-4 position-relative">
+              <div class="p-3 text-center">
+                <h1 class="text-white"><span id="state1" countTo="70">0</span> mm/day</h1>
+                <h5 class="mt-3 text-white">Evapotranspiration</h5>
+                <p class="text-sm">Sum of evaporation from the land surface plus transpiration from plants</p>
+              </div>
+              <hr class="vertical dark">
+            </div>
+            <div class="col-md-4 position-relative">
+              <div class="p-3 text-center">
+                <h1 class="text-white"> <span id="state2" countTo="15">0</span> °C</h1>
+                <h5 class="mt-3 text-white">Temperature</h5>
+                <p class="text-sm">Physical quantity that expresses hot and cold. It is the manifestation of thermal energy, present in all matter</p>
+              </div>
+              <hr class="vertical dark">
+            </div>
+            <div class="col-md-4">
+              <div class="p-3 text-center">
+                <h1 class="text-white" id="state3" countTo="4">0</h1>
+                <h5 class="mt-3 text-white">Vegetation Index</h5>
+                <p class="text-sm">Spectral transformation of two or more bands designed to enhance the contribution of vegetation properties and allow reliable spatial and temporal inter-comparisons of terrestrial photosynthetic activity and canopy structural variations</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  
+  <footer class="footer">
+    <hr class="horizontal dark">
+    <div class="text-center">
+      <h6>©
+        <script>
+          document.write(new Date().getFullYear())
+        </script>, made with <i class="fa fa-heart heart text-danger"></i> by <a
+          href="https://github.com/kunkoder">kunkoder</a>
+      </h6>
+    </div>
+  </footer>
+  <!--   Core JS Files   -->
+  <script src="./assets/js/core/popper.min.js" type="text/javascript"></script>
+  <script src="./assets/js/core/bootstrap.min.js" type="text/javascript"></script>
+  <script src="./assets/js/plugins/perfect-scrollbar.min.js"></script>
+
+  <!--  Plugin for TypedJS, full documentation here: https://github.com/inorganik/CountUp.js -->
+  <script src="./assets/js/plugins/countup.min.js"></script>
+  <script src="./assets/js/plugins/choices.min.js"></script>
+  <script src="./assets/js/plugins/prism.min.js"></script>
+  <script src="./assets/js/plugins/highlight.min.js"></script>
+
+  <!--  Plugin for Parallax, full documentation here: https://github.com/dixonandmoe/rellax -->
+  <script src="./assets/js/plugins/rellax.min.js"></script>
+
+  <!--  Plugin for TiltJS, full documentation here: https://gijsroge.github.io/tilt.js/ -->
+  <script src="./assets/js/plugins/tilt.min.js"></script>
+
+  <!--  Plugin for Selectpicker - ChoicesJS, full documentation here: https://github.com/jshjohnson/Choices -->
+  <script src="./assets/js/plugins/choices.min.js"></script>
+
+  <!--  Plugin for Parallax, full documentation here: https://github.com/wagerfield/parallax  -->
+  <script src="./assets/js/plugins/parallax.min.js"></script>
+
+  <!-- Control Center for Soft UI Kit: parallax effects, scripts for the example pages etc -->
+  <!--  Google Maps Plugin    -->
+  <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDTTfWur0PDbZWPr7Pmq8K3jiDp0_xUziI"></script>
+  <script src="./assets/js/soft-design-system.min.js?v=1.0.5" type="text/javascript"></script>
+  <script src="./assets/js/custom-map.js" type="text/javascript"></script>
+
+</body>
+
+</html>
