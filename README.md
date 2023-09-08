@@ -1,6 +1,6 @@
 # :bulb: Evapotranspirasi Kota Bogor
 
-Repository ini berisi projek aplikasi berbasis web sistem informasi kota bogor yang memuat informasi vegetasi, suhu, dan evapotranspirasi.
+Repository ini berisi projek aplikasi berbasis web sistem informasi geografis kota bogor yang memuat informasi vegetasi, suhu, dan evapotranspirasi.
 
 [Klik disini](https://bogor-evapotranspiration.vercel.app) untuk melihat demo aplikasi.
 
